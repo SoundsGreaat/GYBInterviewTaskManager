@@ -1,12 +1,24 @@
 # Project Structure
+`docker-compose.yml` — Multi-container orchestration for backend, worker, database, and message broker.
 
-backend/ — Main API application (FastAPI/Flask), database models, migrations, and business logic.
+`README.MD `— Project documentation.
 
-worker/ — Celery worker for processing background tasks.
+## Backend
 
-docker-compose.yml — Multi-container orchestration for backend, worker, database, and message broker.
+- `main.py` — Entry point for the FastAPI application.
+- `config.py` — Configuration settings for the application.
+- `models.py` — SQLAlchemy models for the database.
+- `schemas.py` — Pydantic models for request and response validation.
+- `crud.py` — CRUD operations for tasks.
+- `database.py` — Database connection and session management.
+- `celery_client.py` — Celery configuration and task definitions.
+- `llm_client.py` — Integration with the language model API.
 
-README.MD — Project documentation.
+## Worker
+
+- `celery_worker.py` — Entry point for the Celery worker.
+- `config.py` — Configuration settings for the worker.
+- `models.py` — SQLAlchemy models for the database.
 
 # Development
 
@@ -102,22 +114,3 @@ Response:
 
 - ### `DELETE /tasks/{task_id}` - Delete a specific task by ID.
 - ### `GET /health/` - Health check endpoint.
-
-# Project Structure
-
-## Backend
-
-- `main.py` — Entry point for the FastAPI application.
-- `config.py` — Configuration settings for the application.
-- `models.py` — SQLAlchemy models for the database.
-- `schemas.py` — Pydantic models for request and response validation.
-- `crud.py` — CRUD operations for tasks.
-- `database.py` — Database connection and session management.
-- `celery_client.py` — Celery configuration and task definitions.
-- `llm_client.py` — Integration with the language model API.
-
-## Worker
-
-- `celery_worker.py` — Entry point for the Celery worker.
-- `config.py` — Configuration settings for the worker.
-- `models.py` — SQLAlchemy models for the database.
